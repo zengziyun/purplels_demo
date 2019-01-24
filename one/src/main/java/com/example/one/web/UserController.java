@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,6 +22,7 @@ public class UserController {
 
     @Resource
     private NeoProperties properties;
+
     /*@RequestMapping(name = "/getUser")
     public User getUser() {
         User user = new User();
@@ -30,9 +32,9 @@ public class UserController {
         return user;
     }*/
 
-   /* @RequestMapping(name = "/getUserList")
+    /*@RequestMapping(name = "/getUserList")
     public List<User> getUserList() {
-        List<User> list = new ArrayList<>();
+        List<User> list = new ArrayList<User>();
         User user1 = new User();
         user1.setAge(18);
         user1.setName("天平");
@@ -54,8 +56,6 @@ public class UserController {
     @RequestMapping(name = "/saveUser")
     public String saveUser(@Valid User user, BindingResult result){
         System.out.println("user:"+user);
-        System.out.println(properties.getDescription());
-        System.out.println(properties.getTitle());
         System.out.println(title);
         if(result.hasErrors()) {
             List<ObjectError> list = result.getAllErrors();
